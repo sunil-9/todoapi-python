@@ -81,12 +81,12 @@ Using uv (recommended):
 ```bash
 uv sync
 ```
-
+<!-- 
 Or using pip:
 
 ```bash
 pip install -r requirements.txt
-```
+``` -->
 
 ### Running the Application
 

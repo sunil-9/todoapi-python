@@ -81,3 +81,14 @@ class ResetPassword(BaseModel):
     email: EmailStr
     otp: str
     new_password: str = Field(..., min_length=8)
+
+class Test(BaseModel):
+    """Pydantic model for testing and demonstration."""
+    id: int
+    name: str
+    is_active: bool = True
+    
+    class Config:
+        # In Pydantic v2, orm_mode is renamed to from_attributes
+        from_attributes = True  # For Pydantic v2
+        # orm_mode = True       # For Pydantic v1

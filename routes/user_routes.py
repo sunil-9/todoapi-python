@@ -188,3 +188,20 @@ def reset_password(request: ResetPassword, db: Session = Depends(get_db)):
     db.commit()
     
     return {"message": "Password reset successfully"}
+
+@router.get("/test/{id}", response_model=Test)
+def get_test(id: int):
+    """Test endpoint to demonstrate schema usage.
+    
+    This shows how a Pydantic schema controls both input validation and response formatting.
+    The schema definition in models/user.py determines what fields are returned and their types.
+    
+    Args:
+        id: A test ID to include in the response
+        
+    Returns:
+        A Test object with the provided ID, a test name, and default is_active value
+    """
+    # Create a Test object with the provided ID and some default values
+    # FastAPI will validate this against the Test schema and format the response accordingly
+    return Test(id=id, name="Test Item")
