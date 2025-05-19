@@ -11,7 +11,7 @@ import string
 
 from config.database import get_db
 from models.user import (
-    User, UserCreate, UserResponse, TokenResponse, 
+    Test, User, UserCreate, UserResponse, TokenResponse, 
     ForgotPassword, VerifyOTP, ResetPassword, OTPModel
 )
 from utils.auth import (
