@@ -5,17 +5,20 @@ A full-featured REST API for a Todo application built with FastAPI, SQLAlchemy, 
 ## Features
 
 ### User Management
+
 - User registration with password hashing
 - Login with JWT authentication
 - Password reset with OTP via email
 
 ### Todo Management
+
 - Create, read, update, and delete todos
 - Filter todos by completion status
 - Toggle todo completion status
 - Associate todos with specific users
 
 ### Architecture
+
 - Clean, modular architecture following FastAPI best practices
 - Separate configuration, models, routes, and utilities
 - Database integration with SQLAlchemy ORM
@@ -53,11 +56,13 @@ pyapi/
 ## Setup and Installation
 
 ### Prerequisites
+
 - Python 3.10 or higher
 - MySQL database server
 - uv package manager
 
 ### Database Setup
+
 1. Create a MySQL database for the application:
 
 ```sql
@@ -71,17 +76,20 @@ mysql -u root < database.sql
 ```
 
 ### Configuration
+
 1. Update database connection details in `config/settings.py`
 2. For email functionality, add your Gmail address and app password in `config/settings.py`
 3. Configure the JWT secret key in `config/settings.py`
 
 ### Installing Dependencies
+
 Using uv (recommended):
 
 ```bash
 uv sync
 ```
-<!-- 
+
+<!--
 Or using pip:
 
 ```bash
@@ -94,17 +102,25 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-The API will be available at http://localhost:8000
+or
+
+```bash
+uv run main.py dev
+```
+
+This will start the FastAPI server with hot reloading enabled. You can access the application at <http://localhost:8000>.
 
 ## API Documentation
 
 After starting the application, you can access:
-- Interactive API documentation: http://localhost:8000/docs
-- Alternative documentation: http://localhost:8000/redoc
+
+- Interactive API documentation: <http://localhost:8000/docs>
+- Alternative documentation: <http://localhost:8000/redoc>
 
 ### Main Endpoints
 
 #### User Routes
+
 - `POST /users/register` - Register a new user
 - `POST /users/login` - Login and get access token
 - `GET /users/me` - Get current user info
@@ -113,6 +129,7 @@ After starting the application, you can access:
 - `POST /users/reset-password` - Reset password using OTP
 
 #### Todo Routes
+
 - `GET /todos` - List all todos (for authenticated user)
 - `POST /todos` - Create a new todo
 - `GET /todos/{todo_id}` - Get a specific todo
@@ -123,6 +140,7 @@ After starting the application, you can access:
 ## Sample Usage
 
 ### Register a New User
+
 ```bash
 curl -X 'POST' \
   'http://localhost:8000/users/register' \
@@ -135,6 +153,7 @@ curl -X 'POST' \
 ```
 
 ### Login
+
 ```bash
 curl -X 'POST' \
   'http://localhost:8000/users/login' \
@@ -143,6 +162,7 @@ curl -X 'POST' \
 ```
 
 ### Create a Todo
+
 ```bash
 curl -X 'POST' \
   'http://localhost:8000/todos/' \
@@ -156,10 +176,13 @@ curl -X 'POST' \
 ```
 
 ## Sample Users
+
 The database.sql file includes these sample users (all with password 'password123'):
-- user1@example.com / username: user1
-- user2@example.com / username: user2
-- admin@example.com / username: admin
+
+- <user1@example.com> / username: user1
+- <user2@example.com> / username: user2
+- <admin@example.com> / username: admin
 
 ## License
+
 This project is licensed under the MIT License.
